@@ -11,13 +11,13 @@ Ce script est basé sur les travaux de [martinorob](https://github.com/martinoro
 
 1. Modifier le paramètre de ```Niveau de confiance``` de l'onglet ```Général``` des ```Paramètres``` du ```Centre de paquets``` sur la valeur ```Synology Inc. et les éditeurs de confiance```.
 
-![Centre de paquets - Accueil](image/package-center.jpg)
 
-![Centre de paquets - Niveau de confiance](image/package-center-confidence.jpg)
+![Centre de paquets - Accueil](image/package-center.jpg) | ![Centre de paquets - Niveau de confiance](image/package-center-confidence.jpg)
+------------ | -------------
 
-1. Prendre note des groupes utilisateurs que vous souhaitez qui accèdent ou non au volume d'installation de Plex (pour ma part, j'autorise seulement les groupes administrators et video à accéder à ce volume). Ce volume est strictement utilisé pour le fonctionnement du serveur Plex et non pour l'accès à vos fichiers via votre client Plex. C'est pourquoi il est strictement recommandé que seul les utilisateurs avertis puissent y accéder.
+3. Prendre note des groupes utilisateurs que vous souhaitez qui accèdent ou non au volume d'installation de Plex (pour ma part, j'autorise seulement les groupes administrators et video à accéder à ce volume). Ce volume est strictement utilisé pour le fonctionnement du serveur Plex et non pour l'accès à vos fichiers via votre client Plex. C'est pourquoi il est strictement recommandé que seul les utilisateurs avertis puissent y accéder.
 
-1. Préparer un emplacement sur le NAS où stocker le fichier du script.
+3. Préparer un emplacement sur le NAS où stocker le fichier du script.
 
 ## Utilisation
 1. Télécharger le script sur votre ordinateur.
