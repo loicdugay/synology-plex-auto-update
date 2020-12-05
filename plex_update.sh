@@ -23,9 +23,9 @@ url=$(echo "${jq}" | jq -r '.nas.Synology.releases[] | select(.build=="linux-'"$
 sleep 30
 /usr/syno/bin/synopkg start "Plex Media Server"
 rm -rf /tmp/plex/*
+synoshare --setuser Plex NA = @*YOUR_UNAUTHORIZED_USERS_GROUP* >/dev/null
+synoshare --setuser Plex RW = @*YOUR_AUTHORIZED_USERS_GROUP*,@video >/dev/null
 else
 echo Pas de nouvelle version à installer.
 fi
-synoshare --setuser Plex NA = @*YOUR_UNAUTHORIZED_USERS_GROUP* >/dev/null
-synoshare --setuser Plex RW = @*YOUR_AUTHORIZED_USERS_GROUP*,@video >/dev/null
 exit
