@@ -28,7 +28,7 @@ Ce script est basé sur les travaux de [martinorob](https://github.com/martinoro
 
 *Notez que les groupes commencent par un @, tandis que les utilisateurs non. Chaque groupe et utilisateur doivent être séparés d'une virgule et d'un espace. Ex. :  ```@groupe1, @groupe2, utilisateur1, utilisateur2```*
 
-4. Déposer votre script à l'emplacement que vous aurez précédement déini sur votre NAS.
+4. Déposer votre script à l'emplacement que vous aurez précédemment défini sur votre NAS.
 
 4. Ouvrir ```Planificateur de tâches``` via le ```Panneau de configuration``` *(uniquement visible en mode avancé)*.
 
