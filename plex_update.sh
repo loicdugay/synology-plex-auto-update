@@ -30,7 +30,7 @@ fi
 
 # Recherche de la version de Plex Media Server
 mkdir -p /tmp/plex/ > /dev/null 2>&1
-token=$(cat /volume1/@apphome/PlexMediaServer/Plex\ Media\ Server/Preferences.xml | grep -oP 'PlexOnlineToken="\K[^"]+')
+token=$(cat /volume1/PlexMediaServer/AppData/Plex\ Media\ Server/Preferences.xml | grep -oP 'PlexOnlineToken="\K[^"]+')
 url=$(echo "https://plex.tv/api/downloads/5.json?channel=plexpass&X-Plex-Token=$token")
 jq=$(curl -s ${url})
 newversion=$(echo $jq | jq -r '.nas."Synology (DSM 7)".version')
