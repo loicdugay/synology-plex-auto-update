@@ -29,20 +29,46 @@ if [ "$?" -eq "0" ];
 fi
 
 # Recherche de la version de Plex Media Server
-mkdir -p /tmp/plex/ > /dev/null 2>&1
-token=$(cat /volume1/@apphome/PlexMediaServer/Plex\ Media\ Server/Preferences.xml | grep -oP 'PlexOnlineToken="\K[^"]+')
+curversion=$(synopkg version "PlexMediaServer")
+curversion=$(echo $curversion | grep -oP '^.+?(?=\-)')
+splitversion1=$(echo $curversion | cut -d "." -f 1 )
+splitversion2=$(echo $curversion | cut -d "." -f 2 )
+splitversion3=$(echo $curversion | cut -d "." -f 3 )
+splitversion4=$(echo $curversion | cut -d "." -f 4 )
+newpath=false
+if [ $splitversion1 -ge 1 ]
+then
+  if [ $splitversion2 -ge 24 ]
+  then
+    if [ $splitversion3 -ge 2 ]
+    then
+      if [ $splitversion4 -ge 4973 ]
+      then
+        newpath=true
+      fi
+    fi
+  fi
+fi
+if [[ $newpath ]];
+then
+  echo Version de Plex supérieure à 1.24.2.4973 détectée
+  token=$(cat /volume1/PlexMediaServer/AppData/Plex\ Media\ Server/Preferences.xmlcle | grep -oP 'PlexOnlineToken="\K[^"]+')
+else
+  echo Version de Plex inférieure à 1.24.2.4973 détectée
+  token=$(cat /volume1/@apphome/PlexMediaServer/Plex\ Media\ Server/Preferences.xml | grep -oP 'PlexOnlineToken="\K[^"]+')
+fi
+
 url=$(echo "https://plex.tv/api/downloads/5.json?channel=plexpass&X-Plex-Token=$token")
 jq=$(curl -s ${url})
 newversion=$(echo $jq | jq -r '.nas."Synology (DSM 7)".version')
 newversion=$(echo $newversion | grep -oP '^.+?(?=\-)')
-curversion=$(synopkg version "PlexMediaServer")
-curversion=$(echo $curversion | grep -oP '^.+?(?=\-)')
 
 echo Version disponible : $newversion
 echo Version installée : $curversion
 
 if [ "$newversion" != "$curversion" ]
   then
+    mkdir -p /tmp/plex/ > /dev/null 2>&1
     echo Nouvelle version disponible, installation en cours :
     CPU=$(uname -m)
     url=$(echo "${jq}" | jq -r '.nas."Synology (DSM 7)".releases[] | select(.build=="linux-'"${CPU}"'") | .url')
