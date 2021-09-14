@@ -52,7 +52,7 @@ fi
 if [[ $newpath ]];
 then
   echo Version de Plex supérieure à 1.24.2.4973 détectée
-  token=$(cat /volume1/PlexMediaServer/AppData/Plex\ Media\ Server/Preferences.xmlcle | grep -oP 'PlexOnlineToken="\K[^"]+')
+  token=$(cat /volume1/PlexMediaServer/AppData/Plex\ Media\ Server/Preferences.xml | grep -oP 'PlexOnlineToken="\K[^"]+')
 else
   echo Version de Plex inférieure à 1.24.2.4973 détectée
   token=$(cat /volume1/@apphome/PlexMediaServer/Plex\ Media\ Server/Preferences.xml | grep -oP 'PlexOnlineToken="\K[^"]+')
