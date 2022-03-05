@@ -53,12 +53,18 @@ if [[ $newpath ]];
 then
   echo Version de Plex supérieure à 1.24.2.4973 détectée
   token=$(cat /volume1/PlexMediaServer/AppData/Plex\ Media\ Server/Preferences.xml | grep -oP 'PlexOnlineToken="\K[^"]+')
+  channel=$(cat /volume1/PlexMediaServer/AppData/Plex\ Media\ Server/Preferences.xml | grep -oP 'ButlerUpdateChannel="\K[^"]+')
 else
   echo Version de Plex inférieure à 1.24.2.4973 détectée
   token=$(cat /volume1/@apphome/PlexMediaServer/Plex\ Media\ Server/Preferences.xml | grep -oP 'PlexOnlineToken="\K[^"]+')
+  channel=$(cat /volume1/@apphome/PlexMediaServer/Plex\ Media\ Server/Preferences.xml | grep -oP 'ButlerUpdateChannel="\K[^"]+')
 fi
 
-url=$(echo "https://plex.tv/api/downloads/5.json?channel=plexpass&X-Plex-Token=$token")
+if [ "$channel" -eq "8" ]; then
+  url=$(echo "https://plex.tv/api/downloads/5.json?channel=plexpass&X-Plex-Token=$token")
+else
+  url=$(echo "https://plex.tv/api/downloads/5.json")
+fi
 jq=$(curl -s ${url})
 newversion=$(echo $jq | jq -r '.nas."Synology (DSM 7)".version')
 newversion=$(echo $newversion | grep -oP '^.+?(?=\-)')
