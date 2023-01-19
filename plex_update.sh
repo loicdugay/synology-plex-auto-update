@@ -71,6 +71,7 @@ if [ "$newversion" != "$curversion" ]
     mkdir -p /tmp/plex/ > /dev/null 2>&1
     echo Nouvelle version disponible, installation en cours :
     CPU=$(uname -m)
+    [ "$CPU" = "i686" ] && CPU=x86
     url=$(echo "${jq}" | jq -r '.nas."Synology (DSM 7)".releases[] | select(.build=="linux-'"${CPU}"'") | .url')
     /bin/wget $url -P /tmp/plex/
     /usr/syno/bin/synopkg install /tmp/plex/*.spk
