@@ -1,31 +1,25 @@
-# Auto-Update your Plex Media Server on your DMS 7 Synology NAS [French Edition]
+# Discontinué
 
-## Description
-Maintenez automatiquement votre serveur Plex à jour sur votre NAS Synology DSM 7 uniquement.
+## Mise à jour automatique de Plex sur les NAS Synology DSM 6 et 7
 
-## Remerciements
-Ce script est basé sur les travaux de [mj0nsplex](https://forums.plex.tv/u/j0nsplex), [martinorob](https://github.com/martinorob/plexupdate) et de [michealespinola](https://github.com/michealespinola/syno.plexupdate). J'ai traduit et modifié leurs scripts pour mettre à jour automatiquement Plex sur DSM 7. Dans un futur proche je ferai certainement un fork du script de [michealespinola](https://github.com/michealespinola/syno.plexupdate) pour le rendre multi-version de DSM.
+[Michealespinola](https://github.com/michealespinola/ "Michealespinola") propose un script pratique pour la mise à jour automatique de Plex sur les NAS Synology tournant sous DSM 6 et 7.
 
-## Pré-requis
-1. Préparer un emplacement sur le NAS où stocker le fichier du script.
+Vous pouvez remplacer mon script par le sien, qui offre une solution complète et actualisée pour garder Plex à jour sur votre NAS Synology.
 
-## Utilisation
-1. Télécharger le script sur votre ordinateur.
+### **Script de michealespinola 👉** [syno.plexupdate](https://github.com/michealespinola/syno.plexupdate)
 
-1. Déposer votre script à l'emplacement que vous aurez précédemment défini sur votre NAS.
+Merci à michealespinola pour cette contribution précieuse !
 
-1. Ouvrir ```Planificateur de tâches``` via le ```Panneau de configuration``` *(uniquement visible en mode avancé)*.
+------------
 
-1. Cliquer sur ```Créer``` > ```Tâche planifiée``` > ```Script défini par l'utilisateur```
+# Discontinued
 
-1. Dans l'onglet ```Général```, nommer votre tâche et définissez l'utilisateur sur ```root```.
+## Automatic Plex Update on Synology NAS DSM 6 and 7
 
-1. Dans l'onglet ```Programmer```, choissisez la fréquence d'éxécution de votre tâche.
+[Michealespinola](https://github.com/michealespinola/ "Michealespinola") provides a convenient script for automatically updating Plex on Synology NAS running DSM 6 and 7.
 
-1. Dans l'onglet ```Paramètres de tâche```, coller le code suivant ```bash /*SCRIPT_EMPLACEMENT*/plex_update.sh```.
+You can replace my script with theirs, which offers a comprehensive and up-to-date solution to keep Plex updated on your Synology NAS.
 
-1. Remplacer ```*SCRIPT_EMPLACEMENT*``` par l'emplacement de votre script sur votre NAS et cliquer sur OK.
+### **Michealespinola's script 👉** [syno.plexupdate](https://github.com/michealespinola/syno.plexupdate)
 
-1. Si vous souhaitez recevoir des courriels à chaque execution du script, cochez la case ```Envoyer les détails d'exécution par e-mail```.
-
-1. Enjoy !
+Many thanks to michealespinola for this valuable contribution!
